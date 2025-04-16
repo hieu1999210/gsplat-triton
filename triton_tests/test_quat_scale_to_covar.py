@@ -68,6 +68,7 @@ def quat_scale_to_covar_torch(q, s):
     return covar
 
 
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="No CUDA device")
 def test_fwd():
     N = 1024
     q = torch.randn(N, 4, dtype=dtype, device=device)

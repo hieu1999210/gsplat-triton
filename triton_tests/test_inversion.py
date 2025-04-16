@@ -95,6 +95,7 @@ class _InverseSymMat2(torch.autograd.Function):
         return v_M
 
 
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="No CUDA device")
 def test_fwd():
     N = 1024
     eps = 1e-3

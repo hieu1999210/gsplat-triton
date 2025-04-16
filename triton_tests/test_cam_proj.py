@@ -216,6 +216,7 @@ def rand_Ks(N, device, dtype, image_height, image_width, min_fovx, max_fovx):
     return Ks
 
 
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="No CUDA device")
 def test_fwd():
     N = 1024
     mean3 = torch.randn(N, 3, dtype=dtype, device=device)

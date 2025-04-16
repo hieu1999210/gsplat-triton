@@ -54,6 +54,7 @@ def quat_to_R_torch(q):
     return R
 
 
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="No CUDA device")
 def test_fwd():
     N = 1024
     q = torch.randn(N, 4, dtype=dtype, device=device)

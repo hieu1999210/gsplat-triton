@@ -162,6 +162,7 @@ def transform_v3D_torch(V, R, T):
     return torch.einsum("...ij,...j->...i", R, V) + T
 
 
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="No CUDA device")
 def test_fwd_vec():
     N = 1024
     V = torch.rand(N, 3, device=device, dtype=dtype)
@@ -173,6 +174,7 @@ def test_fwd_vec():
     torch.testing.assert_close(U, _U)
 
 
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="No CUDA device")
 def test_autograd_vec():
     N = 1024
     V = torch.rand(N, 3, device=device, dtype=dtype)
@@ -252,6 +254,7 @@ def transform_cov3D_torch(C, R):
     return torch.einsum("...ij,...jk,...lk->...il", R, C, R)
 
 
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="No CUDA device")
 def test_fwd_cov():
     N = 1024
     C = rand_sym_mat(N, 3, device, dtype)
@@ -347,6 +350,7 @@ class TransformCov3D(torch.autograd.Function):
         return transform_cov3D_vjp(C, R, d_S)
 
 
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="No CUDA device")
 def test_autograd_cov():
     N = 1024
     C = rand_sym_mat(N, 3, device, dtype)

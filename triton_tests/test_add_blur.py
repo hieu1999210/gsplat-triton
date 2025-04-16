@@ -67,6 +67,7 @@ def add_blur_torch(M, eps):
     return M_blur, new_det, compensation
 
 
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="No CUDA device")
 def test_fwd():
     N = 1024
     eps = 1e-3
