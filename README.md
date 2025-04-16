@@ -1,4 +1,4 @@
-# gsplat
+# gsplat-triton
 
 [![Core Tests.](https://github.com/hieu1999210/gsplat-triton/actions/workflows/core_tests.yml/badge.svg?branch=main)](https://github.com/hieu1999210/gsplat-triton/actions/workflows/core_tests.yml)
 [![Docs](https://github.com/hieu1999210/gsplat-triton/actions/workflows/doc.yml/badge.svg?branch=main)](https://github.com/hieu1999210/gsplat-triton/actions/workflows/doc.yml)
