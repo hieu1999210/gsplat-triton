@@ -136,7 +136,7 @@ setup(
             "twine",
             "einops",
             "numpy-quaternion",
-            "roma"
+            "roma",
         ],
     },
     ext_modules=get_extensions() if not BUILD_NO_CUDA else [],
