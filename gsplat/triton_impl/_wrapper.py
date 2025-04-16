@@ -541,8 +541,12 @@ def fully_fused_projection(
     )
 
 
-isect_tiles = load_triton_kernel("isect_tiles")
-isect_offset_encode = load_triton_kernel("isect_offset", "get_isect_offsets")
+def isect_tiles(*args, **kwargs):
+    return load_triton_kernel("isect_tiles")(*args, **kwargs)
+
+
+def isect_offset_encode(*args, **kwargs):
+    return load_triton_kernel("isect_offset", "get_isect_offsets")(*args, **kwargs)
 
 
 class _SphericalHarmonics(torch.autograd.Function):
