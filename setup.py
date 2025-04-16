@@ -133,6 +133,7 @@ setup(
             "pyyaml==6.0",
             "build",
             "twine",
+            "einops",
         ],
     },
     ext_modules=get_extensions() if not BUILD_NO_CUDA else [],
