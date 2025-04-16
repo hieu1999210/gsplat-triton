@@ -30,4 +30,4 @@ jobs:
       - name: Run Black Format Check
         run: black . gsplat/ tests/ examples/ profiling/ --check
       - name: Run Tests.
-        run: pytest tests/
+        run: pytest triton_tests/

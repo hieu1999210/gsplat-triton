@@ -1,4 +1,5 @@
 import math
+import os
 from typing import Dict, Optional, Tuple
 
 import torch
@@ -7,14 +8,29 @@ import torch.nn.functional as F
 from torch import Tensor
 from typing_extensions import Literal
 
+BACKEND = os.environ.get("GSPLAT_BACKEND", "triton")
+if BACKEND == "cuda":
+    from .cuda._wrapper import (
+        fully_fused_projection,
+        isect_offset_encode,
+        isect_tiles,
+        rasterize_to_pixels,
+        spherical_harmonics,
+    )
+elif BACKEND == "triton":
+    from .triton_impl._wrapper import (
+        fully_fused_projection,
+        isect_offset_encode,
+        isect_tiles,
+        spherical_harmonics,
+        rasterize_to_pixels,
+    )
+else:
+    raise ValueError(f"Unknown GSPLAT_BACKEND: {BACKEND}")
+
 from .cuda._wrapper import (
-    fully_fused_projection,
     fully_fused_projection_2dgs,
-    isect_offset_encode,
-    isect_tiles,
-    rasterize_to_pixels,
     rasterize_to_pixels_2dgs,
-    spherical_harmonics,
 )
 from .distributed import (
     all_gather_int32,
