@@ -1,7 +1,7 @@
 # gsplat-triton
 
 [![Core Tests.](https://github.com/hieu1999210/gsplat-triton/actions/workflows/core_tests.yml/badge.svg?branch=main)](https://github.com/hieu1999210/gsplat-triton/actions/workflows/core_tests.yml)
-[![Docs](https://github.com/hieu1999210/gsplat-triton/actions/workflows/doc.yml/badge.svg?branch=main)](https://github.com/hieu1999210/gsplat-triton/actions/workflows/doc.yml)
+
 
 
 This project is a [Triton](https://triton-lang.org/main/index.html) implementation of [gsplat](http://www.gsplat.studio/), a CUDA accelerated implemetation of [3D Gaussian Splatting for Real-Time Rendering of Radiance Fields](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/). 
